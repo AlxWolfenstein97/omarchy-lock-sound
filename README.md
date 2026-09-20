@@ -31,6 +31,43 @@ Upstream lock updates are **not** merged automatically. This is a deliberate
 fork of the lock service; if Omarchy changes lock behaviour a lot, re-check
 this repo or re-clone stock and re-add the one-liner.
 
+## Keeping up with Omarchy (rebase)
+
+There is **no** Omarchy signal that says “stock `omarchy.lock` moved; your
+clone is stale.” Two different update paths:
+
+| What | How it updates | What it does *not* do |
+|------|----------------|------------------------|
+| Stock lock | `omarchy update` → package `omarchy` refreshes `/usr/share/omarchy/shell/plugins/lock/` | Touch your enabled clone |
+| This plugin | `omarchy plugin update io.github.alxwolfenstein97.lock-sound` (git pull from GitHub) | Rebase onto stock lock |
+
+So: **you** notice stock drift, then refresh this fork.
+
+**After each Omarchy release / when lock feels wrong:**
+
+```bash
+# Anything besides our one denied line?
+diff -u /usr/share/omarchy/shell/plugins/lock/Service.qml \
+  ~/.config/omarchy/plugins/io.github.alxwolfenstein97.lock-sound/Service.qml
+diff -u /usr/share/omarchy/shell/plugins/lock/LockView.qml \
+  ~/.config/omarchy/plugins/io.github.alxwolfenstein97.lock-sound/LockView.qml
+```
+
+If `LockView.qml` differs, or `Service.qml` differs by more than the
+`omarchy-sound denied` call → copy stock over the fork and re-apply that
+one line in `handlePasswordFailure()`, bump `manifest.json` `version`,
+commit, push. Users get it with `omarchy plugin update …`.
+
+**Optional early warning:** watch
+[basecamp/omarchy](https://github.com/basecamp/omarchy) commits/PRs under
+`shell/plugins/lock/` (GitHub “Watch” → custom → that path, or a simple
+`gh` notify). Pacman/`omarchy update` is still the ground truth for what
+actually landed on the machine.
+
+**Security / compat reality:** while this fork is enabled, you are **not**
+running stock lock. A lock PAM/UI fix in Omarchy does nothing for you until
+you rebase. Keep the diff tiny (one line) so rebases stay boring.
+
 ## Install
 
 Needs the `omarchy-sound` dispatcher (and, for HEV Suit, that theme’s
