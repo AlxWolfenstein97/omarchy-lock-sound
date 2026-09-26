@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "author": "AlxWolfenstein97",
   "license": "MIT",
-  "description": "Omarchy lock screen fork that plays the current theme's sounds/denied.ogg on wrong password via omarchy-sound.",
+  "description": "Stock Omarchy lock plus theme sounds/denied.ogg on wrong password via omarchy-sound.",
   "homepage": "https://github.com/AlxWolfenstein97/omarchy-lock-sound",
   "repository": "https://github.com/AlxWolfenstein97/omarchy-lock-sound",
   "omarchy": {
