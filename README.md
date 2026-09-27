@@ -2,8 +2,8 @@
 
 **Stock Omarchy lock, plus one cue:** wrong password plays the current theme’s
 `sounds/denied.ogg` through `omarchy-sound`. No theme → no file → silence.
-Built for [HEV Suit](https://github.com/AlxWolfenstein97/omarchy-hev-suit-theme);
-any theme that ships `denied.ogg` gets it for free.
+Theme-agnostic — any pack that ships `denied.ogg` works. Worked example today:
+[HEV Suit](https://github.com/AlxWolfenstein97/omarchy-hev-suit-theme).
 
 ## Why this exists
 
