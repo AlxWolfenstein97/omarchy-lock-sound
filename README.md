@@ -76,6 +76,19 @@ Same workshop as the other Omarchy extenders — thin, one job, theme-aware:
 Lock Sound is the lock-shaped piece of that puzzle: the theme cannot patch
 stock lock by itself.
 
+### Already solved elsewhere (gladly)
+
+- **[Omacord](https://github.com/ASwenia/omacord)** — Vesktop / Vencord Discord
+  follows Omarchy themes live. No theme carousel / mockup picker: it **syncs**,
+  and that’s the right call:  
+  `omarchy plugin add https://github.com/ASwenia/omacord --enable`
+
+- **[Omarchy Cava](https://github.com/duncio/omarchy-cava)** — theme-aware audio
+  bars along the bottom of an empty workspace (hides when windows show up). Goes
+  well with your music when you're vibing — not much to show in a rice shot with
+  windows open, which is the point:  
+  `omarchy plugin add https://github.com/duncio/omarchy-cava --enable`
+
 ## Credits / license
 
 Forked from Omarchy’s first-party `omarchy.lock` (DHH / Omarchy). The only
