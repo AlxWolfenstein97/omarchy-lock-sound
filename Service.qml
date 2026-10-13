@@ -298,17 +298,26 @@ Item {
     WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
     exclusionMode: ExclusionMode.Ignore
 
-    LockView {
+    // Only instantiate LockView while the preview is open. A permanent hidden
+    // TextInput still participates in Qt 6.12 clipboard reads and can stall the
+    // shared shell if a clipboard provider blocks or returns unbounded data.
+    Loader {
       anchors.fill: parent
-      backgroundPath: root.backgroundPath
-      backgroundVersion: root.backgroundVersion
-      fingerprintConfigured: root.fingerprintConfigured
-      authenticatingPassword: false
-      failureMessage: ""
-      failedAttempts: 0
-      inputEnabled: false
-      loadBackground: root.previewVisible
-      passwordText: ""
+      active: root.previewVisible
+      sourceComponent: Component {
+        LockView {
+          anchors.fill: parent
+          backgroundPath: root.backgroundPath
+          backgroundVersion: root.backgroundVersion
+          fingerprintConfigured: root.fingerprintConfigured
+          authenticatingPassword: false
+          failureMessage: ""
+          failedAttempts: 0
+          inputEnabled: false
+          loadBackground: true
+          passwordText: ""
+        }
+      }
     }
 
     MouseArea {

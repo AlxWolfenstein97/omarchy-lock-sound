@@ -143,7 +143,9 @@ Item {
         activeFocusOnPress: true
         clip: true
         enabled: root.inputEnabled && !root.authenticatingPassword
-        readOnly: root.authenticatingPassword
+        // Also read-only when input is disabled (preview LockView). Qt 6.12 can
+        // still pull clipboard into a non-read-only TextInput even when disabled.
+        readOnly: !root.inputEnabled || root.authenticatingPassword
         echoMode: TextInput.Password
         passwordCharacter: "\u25CF"
         passwordMaskDelay: 0
