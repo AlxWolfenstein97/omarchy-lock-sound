@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "io.github.alxwolfenstein97.lock-sound",
   "name": "Lock Sound",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "AlxWolfenstein97",
   "license": "MIT",
   "description": "Stock Omarchy lock plus theme sounds/denied.ogg on wrong password via omarchy-sound.",

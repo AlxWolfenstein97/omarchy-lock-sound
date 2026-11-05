@@ -13,9 +13,10 @@ leaves a private copy under `~/.config/omarchy/plugins/` — fine for one machin
 useless for “install this theme and hear biohazard on a bad PIN.”
 
 This repo **is that clone, published**: same lock UI / PAM / fingerprint flows,
-one extra line in `handlePasswordFailure()`, and `clonedFrom: omarchy.lock` so
-Omarchy disables the stock lock while this one is enabled (you only run one
-locker).
+one extra call in `handlePasswordFailure()`, a small preview hardening (the
+hidden preview `TextInput` is only created while the preview is open, and is
+read-only when input is disabled), and `clonedFrom: omarchy.lock` so Omarchy
+disables the stock lock while this one is enabled (you only run one locker).
 
 ## How it works
 
@@ -27,9 +28,9 @@ locker).
 4. Switch themes: cue follows the theme folder. Switch away from a theme with
    no `denied.ogg`: quiet. Remove this plugin: stock lock comes back, no cue.
 
-This is a one-line fork of stock lock — upstream lock fixes land here when
-we refresh the repo; grab them with `omarchy plugin update`. You don’t need
-to rebase anything yourself.
+This is a thin fork of stock lock: one extra cue call plus the preview
+hardening above — upstream lock fixes land here when we refresh the repo; grab
+them with `omarchy plugin update`. You don’t need to rebase anything yourself.
 
 ## Install
 
@@ -86,6 +87,7 @@ stock lock by itself.
 ## Credits / license
 
 Forked from Omarchy’s first-party `omarchy.lock` (DHH / Omarchy). The only
-behavioural addition is the `omarchy-sound denied` call. MIT for this packaging;
-Omarchy itself remains under its own terms. HEV VO credit lives on the theme
-repo, not here — this plugin never ships audio.
+behavioural addition is the `omarchy-sound denied` call; the preview
+`Loader`/`readOnly` hardening is defensive only and changes no visible
+behaviour. MIT for this packaging; Omarchy itself remains under its own terms.
+HEV VO credit lives on the theme repo, not here — this plugin never ships audio.
