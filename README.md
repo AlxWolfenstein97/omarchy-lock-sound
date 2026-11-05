@@ -72,7 +72,7 @@ Same workshop as the other Omarchy extenders — thin, one job, theme-aware:
 | Plugin | Job |
 |--------|-----|
 | **[HEV Suit](https://github.com/AlxWolfenstein97/omarchy-hev-suit-theme)** | Theme pack that ships `sounds/denied.ogg` (and login / battery / update) |
-| **[OmaHud](https://github.com/AlxWolfenstein97/omahud)** / **[OmaOBS](https://github.com/AlxWolfenstein97/omaobs)** / … | Colour extenders (different surface, same idea) |
+| **[OmaHud](https://github.com/AlxWolfenstein97/omahud)** / **[OmaOBS](https://github.com/AlxWolfenstein97/omaobs)** / … | Color extenders (different surface, same idea) |
 
 Lock Sound is the lock-shaped piece of that puzzle: the theme cannot patch
 stock lock by itself.
@@ -87,7 +87,7 @@ stock lock by itself.
 ## Credits / license
 
 Forked from Omarchy’s first-party `omarchy.lock` (DHH / Omarchy). The only
-behavioural addition is the `omarchy-sound denied` call; the preview
+behavioral addition is the `omarchy-sound denied` call; the preview
 `Loader`/`readOnly` hardening is defensive only and changes no visible
-behaviour. MIT for this packaging; Omarchy itself remains under its own terms.
+behavior. MIT for this packaging; Omarchy itself remains under its own terms.
 HEV VO credit lives on the theme repo, not here — this plugin never ships audio.
